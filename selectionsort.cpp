@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
 
-    int min, arr_len, index;
+    int min, arr_len, temp;
     cin>>arr_len;
     int arr[arr_len];// = {7, 3, 1, 5, 4, 1 , 8};
 
@@ -15,20 +15,18 @@ int main(){
 
     for (int i = 0; i < arr_len; i++)
     {
-        min = arr[i];
+        min = i;
 
         for (int j = i+1; j < arr_len; j++)
         {   
-            if(arr[j] < min ){
-                min = arr[j];
-                index = j;
+            if(arr[j] < arr[min] ){
+                min = j;
             }
         }             
 
-        if(arr[i] > min){
-            arr[index] = arr[i];
-            arr[i] = min;
-        }
+        temp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = temp;
     }
 
     for (int i = 0; i < arr_len; i++)
